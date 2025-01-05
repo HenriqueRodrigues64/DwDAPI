@@ -3,8 +3,8 @@ const router = express.Router();
 const connection = require('../database')
 
 router.get("/GetParts/:ComputerID/minigame/:minigameID" ,(req,res)=>{
-    var computerID = req.body.computer;
-    var minigameID = req.body.minigameID;
+    var computerID = req.params.ComputerID;
+    var minigameID = req.params.minigameID;
     connection.execute("select * from players where UserID = ?",
         [computerID],
         function(err,results,fields){
@@ -50,7 +50,7 @@ router.get("/GetParts/:ComputerID/minigame/:minigameID" ,(req,res)=>{
         
 })
 router.get("/CheckComputer/:ComputerID") ,(req,res)=>{
-    var computerID = req.params.computer;
+    var computerID = req.params.ComputerID;
     connection.execute("select * from players where UserID = ?",
         [computerID],
         function(err,results,fields){
