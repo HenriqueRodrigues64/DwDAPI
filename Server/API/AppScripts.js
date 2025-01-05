@@ -49,7 +49,7 @@ router.get("/GetParts/:ComputerID/minigame/:minigameID" ,(req,res)=>{
         })
         
 })
-router.post("/CheckComputer") ,(req,res)=>{
+router.post("/CheckComputer" ,(req,res)=>{
     var computerID = req.body.ComputerID;
     connection.execute("select * from players where UserID = ?",
         [computerID],
@@ -76,7 +76,7 @@ router.post("/CheckComputer") ,(req,res)=>{
                 });
             }
         })
-}
+})
 router.get("/CheckMinigame/:computerID/minigame/:minigameID" ,(req,res)=>{
     var computerID = req.params.computerID;
     var minigameID = req.params.minigameID;
