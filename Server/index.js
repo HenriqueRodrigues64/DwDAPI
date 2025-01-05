@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 
-const port = 9000;
+const port = 3000;
 const appScrpts = require('./API/AppScripts')
 const connection = require('./database');
 connection.connect((err) => {
