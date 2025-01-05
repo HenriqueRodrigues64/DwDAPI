@@ -2,6 +2,18 @@ const express = require('express')
 const router = express.Router();
 const connection = require('../database')
 
+export default function handler(req, res) {
+    // Handle POST request to CheckComputer endpoint
+    if (req.method === "POST" && req.url.includes("CheckComputer")) {
+      // Example logic for responding with a mock ID
+      const computerID = req.body?.ComputerID || "Unknown";
+      res.status(200).json({ result: `ComputerID received: ${computerID}` });
+    } else {
+      // Default 404 for undefined routes
+      res.status(404).json({ message: "Endpoint not found" });
+    }
+  }
+  
 router.get("/GetParts/:ComputerID/minigame/:minigameID" ,(req,res)=>{
     var computerID = req.params.ComputerID;
     var minigameID = req.params.minigameID;
